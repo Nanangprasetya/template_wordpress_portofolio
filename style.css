@@ -1,0 +1,21 @@
+/*!
+Theme Name: Hikari
+Author: panemu indonesia
+Author URI: https://panemu.com/
+Description: PT HSI is trusted partner for clients in General Industry area and working closely with our clients allows us to act in their best interest over the long term.
+Version: 1.0.0
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License: GNU General Public License v2 or later
+Text Domain: Hikari Seiko Indonesia
+*/
+
+
+* {
+    box-sizing: border-box;
+
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    color: #444444;
+}
