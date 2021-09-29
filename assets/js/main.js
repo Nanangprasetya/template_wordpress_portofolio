@@ -1,4 +1,4 @@
-(function() {
+(function () {
   "use strict";
 
   /**
@@ -112,9 +112,22 @@
   }
 
   /**
+   * Dark Mode
+   */
+  on('click', '.toggle-mode', function (e) {
+    var ele = document.body;
+    ele.classList.toggle('dark-mode');
+    if (ele.classList.contains('dark-mode')) {
+      document.documentElement.setAttribute("data-mode", "dark");
+    } else {
+      document.documentElement.setAttribute("data-mode", "light");
+    }
+  })
+
+  /**
    * Mobile nav toggle
    */
-  on('click', '.mobile-nav-toggle', function(e) {
+  on('click', '.mobile-nav-toggle', function (e) {
     select('#navbar').classList.toggle('navbar-mobile')
     this.classList.toggle('bi-list')
     this.classList.toggle('bi-x')
@@ -123,7 +136,7 @@
   /**
    * Mobile nav dropdowns activate
    */
-  on('click', '.navbar .dropdown > a', function(e) {
+  on('click', '.navbar .dropdown > a', function (e) {
     if (select('#navbar').classList.contains('navbar-mobile')) {
       e.preventDefault()
       this.nextElementSibling.classList.toggle('dropdown-active')
@@ -132,7 +145,7 @@
 
   let submit = select('.wpcf7-submit')
   const subActive = () => {
-    if(select('#contact').classList.contains('.ajax-loader.is-active')){
+    if (select('#contact').classList.contains('.ajax-loader.is-active')) {
       submit.classList.remove('active')
     } else {
       submit.classList.add('active')
@@ -144,7 +157,7 @@
   /**
    * Scrool with ofset on links with a class name .scrollto
    */
-  on('click', '.scrollto', function(e) {
+  on('click', '.scrollto', function (e) {
     if (select(this.hash)) {
       e.preventDefault()
 
@@ -229,9 +242,9 @@
 
       let portfolioFilters = select('#portfolio-flters li', true);
 
-      on('click', '#portfolio-flters li', function(e) {
+      on('click', '#portfolio-flters li', function (e) {
         e.preventDefault();
-        portfolioFilters.forEach(function(el) {
+        portfolioFilters.forEach(function (el) {
           el.classList.remove('filter-active');
         });
         this.classList.add('filter-active');
@@ -239,7 +252,7 @@
         portfolioIsotope.arrange({
           filter: this.getAttribute('data-filter')
         });
-        portfolioIsotope.on('arrangeComplete', function() {
+        portfolioIsotope.on('arrangeComplete', function () {
           AOS.refresh()
         });
       }, true);
@@ -247,7 +260,67 @@
 
   });
 
-  /**
+  // Text running
+  var TxtRotate = function (el, toRotate, period) {
+    this.toRotate = toRotate;
+    this.el = el;
+    this.loopNum = 0;
+    this.period = parseInt(period, 10) || 2000;
+    this.txt = '';
+    this.tick();
+    this.isDeleting = false;
+  };
+
+  TxtRotate.prototype.tick = function () {
+    var i = this.loopNum % this.toRotate.length;
+    var fullTxt = this.toRotate[i];
+
+    if (this.isDeleting) {
+      this.txt = fullTxt.substring(0, this.txt.length - 1);
+    } else {
+      this.txt = fullTxt.substring(0, this.txt.length + 1);
+    }
+
+    this.el.innerHTML = '<span class="wrap">' + this.txt + '</span>';
+
+    var that = this;
+    var delta = 300 - Math.random() * 100;
+
+    if (this.isDeleting) {
+      delta /= 2;
+    }
+
+    if (!this.isDeleting && this.txt === fullTxt) {
+      delta = this.period;
+      this.isDeleting = true;
+    } else if (this.isDeleting && this.txt === '') {
+      this.isDeleting = false;
+      this.loopNum++;
+      delta = 500;
+    }
+
+    setTimeout(function () {
+      that.tick();
+    }, delta);
+  };
+
+  window.onload = function () {
+    var elements = document.getElementsByClassName('txt-rotate');
+    for (var i = 0; i < elements.length; i++) {
+      var toRotate = elements[i].getAttribute('data-rotate');
+      var period = elements[i].getAttribute('data-period');
+      if (toRotate) {
+        new TxtRotate(elements[i], JSON.parse(toRotate), period);
+      }
+    }
+    // INJECT CSS
+    var css = document.createElement("style");
+    css.type = "text/css";
+    css.innerHTML = ".txt-rotate > .wrap { border-right: 0.08em solid #666 }";
+    document.body.appendChild(css);
+  };
+
+   /**
    * Initiate portfolio lightbox 
    */
   const portfolioLightbox = GLightbox({
@@ -284,15 +357,31 @@
   });
 
   /**
- * Hero carousel indicators
- */
-    let heroCarouselIndicators = select("#hero-carousel-indicators")
-    let heroCarouselItems = select('#heroCarousel .carousel-item', true)
-  
-    heroCarouselItems.forEach((item, index) => {
-      (index === 0) ?
-      heroCarouselIndicators.innerHTML += "<li data-bs-target='#heroCarousel' data-bs-slide-to='" + index + "' class='active'></li>":
+   * Hero carousel indicators
+   */
+  let heroCarouselIndicators = select("#hero-carousel-indicators")
+  let heroCarouselItems = select('#heroCarousel .carousel-item', true)
+
+  heroCarouselItems.forEach((item, index) => {
+    (index === 0) ?
+    heroCarouselIndicators.innerHTML += "<li data-bs-target='#heroCarousel' data-bs-slide-to='" + index + "' class='active'></li>":
       heroCarouselIndicators.innerHTML += "<li data-bs-target='#heroCarousel' data-bs-slide-to='" + index + "'></li>"
-    });   
+  });
+
+  const loadmore = document.querySelector('.btn-load-more');
+  let currentItems = 6;
+  loadmore.addEventListener('click', (e) => {
+    const elementList = [...document.querySelectorAll('.tools-container .tools-item')];
+        for (let i = currentItems; i < currentItems + 3; i++) {
+            if (elementList[i]) {
+                elementList[i].style.display = 'block';
+            }
+        }
+        currentItems += 3;
+        
+        if (currentItems >= elementList.length) {
+          event.target.style.display = 'none';
+        }
+  });
 
 })()

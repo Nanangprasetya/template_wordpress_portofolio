@@ -18,7 +18,7 @@
  * @param bool $checked Whether the checkbox is checked.
  * @return bool Whether the checkbox is checked.
  */
-function hsi_sanitize_checkbox( $checked ) {
+function bs_sanitize_checkbox( $checked ) {
 	// Boolean check.
 	return ( ( isset( $checked ) && true == $checked ) ? true : false );
 }
@@ -40,7 +40,7 @@ function hsi_sanitize_checkbox( $checked ) {
  * @param string $css CSS to sanitize.
  * @return string Sanitized CSS.
  */
-function hsi_sanitize_css( $css ) {
+function bs_sanitize_css( $css ) {
 	return wp_strip_all_tags( $css );
 }
 
@@ -60,7 +60,7 @@ function hsi_sanitize_css( $css ) {
  * @param WP_Customize_Setting $setting Setting instance.
  * @return int|string Page ID if the page is published; otherwise, the setting default.
  */
-function hsi_sanitize_dropdown_pages( $page_id, $setting ) {
+function bs_sanitize_dropdown_pages( $page_id, $setting ) {
 	// Ensure $input is an absolute integer.
 	$page_id = absint( $page_id );
 	
@@ -84,7 +84,7 @@ function hsi_sanitize_dropdown_pages( $page_id, $setting ) {
  * @param WP_Customize_Setting $setting   Setting instance.
  * @return string The sanitized hex color if not null; otherwise, the setting default.
  */
-function hsi_sanitize_hex_color( $hex_color, $setting ) {
+function bs_sanitize_hex_color( $hex_color, $setting ) {
 	// Sanitize $input as a hex value without the hash prefix.
 	$hex_color = sanitize_hex_color( $hex_color );
 	
@@ -101,8 +101,8 @@ function hsi_sanitize_hex_color( $hex_color, $setting ) {
  * @uses	theme_slug_validate_image()		
  * @uses	esc_url_raw()				http://codex.wordpress.org/Function_Reference/esc_url_raw
  */
-function hsi_sanitize_image( $input, $setting ) {
-	return esc_url_raw( hsi_validate_image( $input, $setting->default ) );
+function bs_sanitize_image( $input, $setting ) {
+	return esc_url_raw( bs_validate_image( $input, $setting->default ) );
 }
 
 /**
@@ -113,7 +113,7 @@ function hsi_sanitize_image( $input, $setting ) {
  * @uses	in_array()				http://php.net/manual/en/function.in-array.php
  */
  
-function hsi_validate_image( $input, $default = '' ) {
+function bs_validate_image( $input, $default = '' ) {
 	// Array of valid image file types
 	// The array includes image mime types
 	// that are included in wp_get_mime_types()
@@ -153,7 +153,7 @@ function hsi_validate_image( $input, $default = '' ) {
  * @param WP_Customize_Setting $setting Setting instance.
  * @return int Sanitized number; otherwise, the setting default.
  */
-function hsi_sanitize_number_absint( $number, $setting ) {
+function bs_sanitize_number_absint( $number, $setting ) {
 	// Ensure $number is an absolute integer (whole number, zero or greater).
 	$number = absint( $number );
 	
@@ -178,7 +178,7 @@ function hsi_sanitize_number_absint( $number, $setting ) {
  * @param WP_Customize_Setting $setting Setting instance.
  * @return string Sanitized slug if it is a valid choice; otherwise, the setting default.
  */
-function hsi_sanitize_select( $input, $setting ) {
+function bs_sanitize_select( $input, $setting ) {
 	
 	// Ensure input is a slug.
 	$input = sanitize_key( $input );
@@ -195,7 +195,7 @@ function hsi_sanitize_select( $input, $setting ) {
  * @param $input
  * @return int
  */
-function hsi_sanitize_category($input){
+function bs_sanitize_category($input){
 	$output=intval($input);
 	return $output;
 }
@@ -206,7 +206,7 @@ if ( ! class_exists( 'WP_Customize_Control' ) )
 /**
  * Class tromas_Customize_Dropdown_Taxonomies_Control
  */
-class hsi_Customize_Dropdown_Taxonomies_Control extends WP_Customize_Control {
+class bs_Customize_Dropdown_Taxonomies_Control extends WP_Customize_Control {
 
   public $type = 'dropdown-taxonomies';
 
@@ -240,7 +240,7 @@ class hsi_Customize_Dropdown_Taxonomies_Control extends WP_Customize_Control {
       <span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
          <select <?php echo esc_attr($this->link()); ?>>
             <?php
-              printf('<option value="%s" %s>%s</option>', '', selected(esc_attr($this->value()), '', false),esc_html('Select', 'hsi') );
+              printf('<option value="%s" %s>%s</option>', '', selected(esc_attr($this->value()), '', false),esc_html('Select', 'bs') );
              ?>
             <?php if ( ! empty( $all_taxonomies ) ): ?>
               <?php foreach ( $all_taxonomies as $key => $tax ): ?>
@@ -261,7 +261,7 @@ class hsi_Customize_Dropdown_Taxonomies_Control extends WP_Customize_Control {
 /**
  * Class to create a custom post control
  */
-class hsi_Post_Dropdown_Custom_Control extends WP_Customize_Control
+class bs_Post_Dropdown_Custom_Control extends WP_Customize_Control
 {
 	public $type = 'dropdown-posts';
     private $posts = false;
@@ -283,7 +283,7 @@ class hsi_Post_Dropdown_Custom_Control extends WP_Customize_Control
                   <span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
                      <select <?php echo esc_attr($this->link()); ?>>
                         <?php
-                          printf('<option value="%s" %s>%s</option>', '', selected(esc_attr($this->value()), '', false),esc_html('Select', 'hsi') );
+                          printf('<option value="%s" %s>%s</option>', '', selected(esc_attr($this->value()), '', false),esc_html('Select', 'bs') );
                          ?>
                         <?php if( !empty( $this->posts ) ): ?>
                           <?php  foreach ( $this->posts as $post ): ?>

@@ -1,7 +1,7 @@
 <?php
 get_header();
 ?>
-<section id="page" class="content-page bg-white">
+<section id="page" class="content-page">
     <div class="container">
         <main class="wrap">
             <section class="content-area carousel-fade">

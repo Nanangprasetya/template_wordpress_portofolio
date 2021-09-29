@@ -21,15 +21,14 @@
 get_header();
 ?>
 
-<?php get_template_part('includes/theme-sections/hsi', 'hero-slider'); ?>
-
 <main id="main">
   
-  <?php get_template_part('includes/theme-sections/hsi', 'about'); ?>
-  <?php get_template_part('includes/theme-sections/hsi', 'service'); ?>
-  <?php get_template_part('includes/theme-sections/hsi', 'service-other'); ?>
-  <?php get_template_part('includes/theme-sections/hsi', 'product'); ?>
-  <?php get_template_part('includes/theme-sections/hsi', 'contact'); ?>
+  <?php get_template_part('includes/theme-sections/bs', 'about'); ?>
+  <?php get_template_part('includes/theme-sections/bs', 'project'); ?>
+  <?php get_template_part('includes/theme-sections/bs', 'project-1'); ?>
+  <?php get_template_part('includes/theme-sections/bs', 'project-2'); ?>
+  <?php get_template_part('includes/theme-sections/bs', 'project-3'); ?>
+  <?php get_template_part('includes/theme-sections/bs', 'tools'); ?>
 
 </main>
 

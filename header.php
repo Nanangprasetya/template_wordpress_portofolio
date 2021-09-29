@@ -4,17 +4,10 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-    <title>PT.Hikari Seiko Indonesia</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
-    <!-- Favicons -->
-    <link href="<?php bloginfo('template_directory'); ?>/assets/img/logo/logo-1.svg" rel="icon">
-    <link href="<?php bloginfo('template_directory'); ?>/assets/img/logo/logo-1.svg" rel="apple-touch-icon">
-
     <?php wp_head(); ?>
-
 </head>
 
 <body>
@@ -37,14 +30,16 @@
                         wp_nav_menu(array(
                             'theme_location' => 'menu-1',
                             'menu_id'        => 'primary-menu',
-                            'menu_class'        => 'nav-link scrollto',
+                            'menu_class'     => 'nav-link scrollto',
                         ));
                         ?>
                         <i class="bi mobile-nav-toggle"> <span class="menu-text">Menu</span> </i>
                     </nav>
 
-                    <a class="toggle-mode"> &#127770; </a>
-                    <!-- <a class="toggle-mode"> &#127773; </a> -->
+                    <a class="toggle-mode">
+                        <span class="is-light"> &#127770;</span>
+                        <span class="is-dark"> &#127773;</span>
+                    </a>
                 </div>
 
             </div>
