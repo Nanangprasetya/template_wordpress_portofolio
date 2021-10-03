@@ -122,3 +122,18 @@ add_shortcode("locale_trans", 'locale_trans');
  * Customizer additions.
  */
 require get_template_directory() . '/includes/customizer.php';
+
+function imageviewer_custom_options() {
+    ?>
+    <script>
+    imageviewer_custom_options = {
+        zoomValue: 100,
+        snapView: true,
+        maxZoom: 500,
+        refreshOnResize: true,
+        zoomOnMouseWheel: true
+    };
+    </script>
+    <?php
+}
+add_action( 'wp_footer', 'imageviewer_custom_options' );

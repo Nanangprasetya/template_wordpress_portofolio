@@ -30,11 +30,19 @@
                   en="Back to home page"]'); ?>
                 </a>
             </p>
-            <div class="social-links">
-                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            <div class="social-links d-flex align-items-center">
+                <?php for ($i = 1; $i <= 5; $i++) : ?>
+                    <?php if (!empty(get_theme_mod('bs_about_icon_' . $i))) : ?>
+                        <li>
+                            <a href="<?php echo esc_attr(get_theme_mod('bs_about_icon_url_' . $i)) ?>">
+                                <span class="iconify" data-inline="false" data-icon="<?php echo esc_attr(get_theme_mod('bs_about_icon_' . $i)) ?>"></span>
+                            </a>
+                        </li>
+                    <?php endif; ?>
+                <?php endfor; ?>
             </div>
+
+
         </div>
     </div>
 

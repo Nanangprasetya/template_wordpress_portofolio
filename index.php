@@ -10,10 +10,10 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package Hikari
+ * @package Biscuit
  */
 
-/* Template Name: INDEX */
+/* Template Name: HOME TEMP */
 
 ?>
 

@@ -39,7 +39,7 @@
                         </h2>
                         <p>
                             <?php echo esc_html($bs_about_paragraph); ?>
-                            <a href="<?php echo esc_attr($bs_about_link_company) ?>"><?php echo esc_html($bs_about_text_company); ?></a>
+                            <a target="blank" href="<?php echo esc_attr($bs_about_link_company) ?>"><?php echo esc_html($bs_about_text_company); ?></a>
                             <?php echo esc_html($bs_about_paragraph_end); ?>
                         </p>
                     </div>
@@ -52,7 +52,7 @@
                             <?php for ($i = 1; $i <= 5; $i++) : ?>
                                 <?php if (!empty(get_theme_mod('bs_about_icon_' . $i))) : ?>
                                     <li>
-                                        <a href=" <?php echo esc_attr(get_theme_mod('bs_about_icon_url_' . $i)) ?>">
+                                        <a target="blank" href=" <?php echo esc_attr(get_theme_mod('bs_about_icon_url_' . $i)) ?>">
                                             <span class="iconify" data-inline="false" data-icon="<?php echo esc_attr(get_theme_mod('bs_about_icon_' . $i)) ?>"></span>
                                         </a>
                                     </li>
@@ -61,9 +61,9 @@
                         </ul>
                 </div>
 
-                    <?php if (!empty($bs_about_link_company)) : ?>
+                    <?php if (!empty($bs_about_link_cv)) : ?>
                         <div class="download d-flex align-items-center">
-                            <a href="<?php echo esc_html($bs_about_link_company); ?>">
+                            <a target="blank" href="<?php echo esc_html($bs_about_link_cv); ?>">
                                 <i class="iconify" data-inline="false" data-icon="<?php echo esc_attr($bs_about_icon_cv) ?>"></i>
                                 <?php echo esc_html($bs_about_text_cv); ?>
                             </a>

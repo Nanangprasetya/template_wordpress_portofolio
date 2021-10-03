@@ -7,6 +7,14 @@
     <meta content="" name="description">
     <meta content="" name="keywords">
 
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Team Money (Teamo) by Panemu" />
+    <meta property="og:description" content="Team Money (Teamo) aplikasi pencatatan keuangan tim atau kelompok yang mudah, transparan dan dapat diaudit bersama." />
+    <meta property="og:url" content="https://teamo.panemu.com/id/" />
+    <meta property="og:image" content="https://teamo.panemu.com/id/assets/img/intro/web-intro.webp" />
+    <meta property="og:site_name" content="Team Money (Teamo) by Panemu" />
+
     <?php wp_head(); ?>
 </head>
 

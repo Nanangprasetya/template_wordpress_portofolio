@@ -931,7 +931,7 @@ section {
 
 .project .content p {
   font-size: 16px;
-  line-height: 36px;
+  line-height: 34px;
   color: var(--cl-prgf);
   margin: 0;
 }
@@ -955,6 +955,7 @@ section {
   .project .left {
     text-align-last: center;
     padding-bottom: 36px; 
+    text-align: center;
   }
 
   .project .chart {
@@ -1023,7 +1024,7 @@ section {
 }
 
 .tools .tools-item .tools-info {
-  padding-right: 100px;
+  padding-right: 60px;
 }
 
 .tools .tools-item .tools-info h4 {
@@ -1067,6 +1068,7 @@ section {
   justify-content: center;
   background-color: var(--cl-bg-hover);
   color: var(--cl-head);
+  text-align: center;
 }
 
 
@@ -1201,6 +1203,10 @@ section {
   padding: 15px;
 }
 
+.notfound .social-links {
+  justify-content: center;
+}
+
 .pnl-body {
   position: relative;
   height: 220px;
@@ -1232,24 +1238,116 @@ section {
 }
 
 .notfound p a {
-  color:  var(--cl-head);
+  color:  var(--cl-primery);
   font-weight: 200;
   text-decoration: none;
 }
 
 .notfound .social-links a {
-  background: rgba(191, 15, 18, 0.09);
   color:  var(--cl-head);
 }
 
 .notfound .social-link a:hover {
-  background: #BF0F12 ;
-  color: white ;
+  background: var(--cl-btn-hover);
 }
 
 /* --- */
 /* Page */
 
 #page article {
-  padding: 6% 0;
+  padding: 24vh 0 16vh 0;
+}
+
+#page header h1 {
+  font-size: 80px;
+  font-weight: 700;
+}
+
+#page .inner-container {
+  max-width: 720px;
+  width: 100%;
+  padding-right: var(--bs-gutter-x,.75rem);
+  padding-left: var(--bs-gutter-x,.75rem);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#page main p,
+#page main li {
+  font-size: 15px;
+  line-height: 32px;
+}
+
+#page main p a{
+  color: var(--cl-primery);
+  text-decoration-line: underline;
+}
+
+#page main figure a {
+  color: var(--cl-primery);
+  text-decoration-line: underline;
+}
+
+#page main h5 {
+  line-height: 2;
+}
+
+#page main h6 {
+  color: var(--cl-prgf);
+}
+
+#page main figcaption {
+  display: flex;
+  justify-content: center;
+  font-size: 12px;
+  margin-top: 1.5em;
+}
+
+#page main hr {
+  color: var(--cl-prgf);
+}
+
+#page .wp-block-image img {
+  height: min-content;
+}
+
+.wp-block-columns {
+  margin: 0;
+  padding: 0;
+}
+
+
+/* About Temp */
+#about-temp header {
+  padding-right: 50%;
+}
+
+#about-temp header h1{
+  font-size: 68px;
+}
+
+#about-temp main p {
+  font-size: 16px;
+}
+
+#about-temp main h5 {
+  font-size: 18px;
+  line-height: 2;
+  margin: 0;
+  padding: 0;
+}
+
+#about-temp main h5 a{
+  color: var(--cl-primery);
+  text-decoration-line: underline;
+}
+
+@media (max-width: 992px) {
+  #page header h1 {
+    font-size:  56px;
+  }
+
+  #about-temp header {
+    padding-right: 0;
+  }
 }
