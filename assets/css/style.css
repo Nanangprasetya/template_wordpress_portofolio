@@ -1317,6 +1317,7 @@ section {
 }
 
 
+
 /* About Temp */
 #about-temp header {
   padding-right: 50%;
@@ -1349,5 +1350,26 @@ section {
 
   #about-temp header {
     padding-right: 0;
+  }
+
+  #page iframe  {
+    width: 414px;
+    margin: auto;
+    border-style: none;
+    display: block;
+  }
+}
+
+@media (max-width: 640px){
+  #page iframe  {
+    width: 360px;
+    height: 650px;
+  }
+}
+
+@media (max-width: 432px){
+  #page iframe  {
+    width: 320px;
+    height: 700px;
   }
 }

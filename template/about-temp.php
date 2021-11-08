@@ -26,9 +26,6 @@ get_header();
             <section class="content-area carousel-fade">
                 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
                         <article id="about-temp" class="article-full">
-                            <header>
-                                <h1><?php the_title(); ?></h1>
-                            </header>
                             <main>
                                <div class="content">
                                    <?php the_content(); ?>

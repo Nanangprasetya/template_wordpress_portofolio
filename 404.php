@@ -3,7 +3,7 @@
 /**
  * Displaying 404 pages (not found).
  *
- * @package Hikari
+ * @package Biscuit
  */
 ?>
 <?php wp_head(); ?>

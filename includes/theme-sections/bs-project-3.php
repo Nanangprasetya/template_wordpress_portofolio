@@ -44,7 +44,7 @@
 
                 </div>
                 <div class="col-lg-6 right">
-                    <img class="img-responsive" height="550" width="740" src="<?php echo esc_html($bs_project_3_image_right); ?>" alt="">
+                    <img class="img-responsive" height="600" width="640" src="<?php echo esc_html($bs_project_3_image_right); ?>" alt="">
                 </div>
             </div>
         </div>
