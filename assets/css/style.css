@@ -1057,7 +1057,7 @@ section {
 }
 
 .tools .tools-more {
-  background: var(--cl-bg)
+  background: var(--cl-bg);
   display: grid;
   padding: 40px 0;
 }
