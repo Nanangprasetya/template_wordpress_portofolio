@@ -111,18 +111,54 @@
     onscroll(document, toggleBacktotop)
   }
 
-  /**
+
+   /**
    * Dark Mode
    */
+  var ele = document.body;
+
   on('click', '.toggle-mode', function (e) {
-    var ele = document.body;
     ele.classList.toggle('dark-mode');
-    if (ele.classList.contains('dark-mode')) {
+    let theme = localStorage.getItem('theme');
+    
+    if (ele.classList.contains('dark-mode') || theme == 'light') {
+      ele.classList.add('dark-mode');
+      localStorage.setItem("theme", 'dark');
       document.documentElement.setAttribute("data-mode", "dark");
+      console.log("set True");
     } else {
+      ele.classList.remove('dark-mode');
+      localStorage.setItem("theme", 'light');
       document.documentElement.setAttribute("data-mode", "light");
+      console.log("set False");
     }
   })
+
+  const changeThemeToDark = () => {
+    ele.classList.add('dark-mode');
+    document.documentElement.setAttribute("data-mode", "dark");
+  }
+  
+  const changeThemeToLight = () => {
+    ele.classList.remove('dark-mode');
+    document.documentElement.setAttribute("data-mode", "light");
+  }
+
+  const btn = document.querySelector('.toggle-mode');
+
+  window.addEventListener('load', (event) => {
+    let theme = localStorage.getItem('theme');
+    if(theme === null){
+      localStorage.setItem("theme", 'light');
+    }
+    console.log("IS " + theme)
+    if (theme === 'dark') {
+      changeThemeToDark()
+    } else {
+      changeThemeToLight()
+    }
+  });
+
 
   /**
    * Mobile nav toggle
@@ -259,6 +295,8 @@
     }
 
   });
+
+  
 
   // Text running
   var TxtRotate = function (el, toRotate, period) {
