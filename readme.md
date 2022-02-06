@@ -2,7 +2,7 @@
 
 This is my template WordPress portfolio, with an elegant and modern view, I create this template using CMS WordPress. with a light or dark mode feature.
 
-![Image](screenshot.png)
+![Image](screenshot.jpg)
 
 ### Folder Structure
 Please paste this file into folder:
