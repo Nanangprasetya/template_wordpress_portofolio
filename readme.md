@@ -1,4 +1,4 @@
-# Tamplate Wordpress my Portofolio ([Preview](https://biscuit.my.id/))
+# Template Wordpress for my Portofolio
 
 This is my template WordPress portfolio, with an elegant and modern view, I create this template using CMS WordPress. with a light or dark mode feature.
 
